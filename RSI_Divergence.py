@@ -90,7 +90,7 @@ def rsi_divergence(data, window, order):
 Hisse_Ozet=Hisse_Temel_Veriler()
 Hisseler=Hisse_Ozet['Kod'].values.tolist()
 
-Titles=['Hisse Adı','Kazanma Oranı[%]','Sharpe Oranı','Ortalama Kazanma Oranı [%]','Ort Kazanma Süresi','Ortalama Kayıp Oranı [%]','Ort Kayıp Süresi','Giriş Sinyali','Çıkış Sinyali']
+Titles=['Hisse Adı','Kazanma Oranı[%]','Sharpe Oranı','Ort. Kazanma Oranı [%]','Ort Kazanma Süresi','Ort. Kayıp Oranı [%]','Ort Kayıp Süresi','Giriş Sinyali','Çıkış Sinyali']
 df_signals=pd.DataFrame(columns=Titles)
 
 for i in range(0,len(Hisseler)):
@@ -123,7 +123,6 @@ for i in range(0,len(Hisseler)):
             round(Stats.loc['Avg Losing Trade [%]'],2),str(Stats.loc['Avg Losing Trade Duration']),
             str(Buy),str(Sell)]
 
-        L1 = [str(elem) for elem in L1]
         print(L1)
         df_signals.loc[len(df_signals)] = L1
         if Buy==True and float(L1[1])>80.0:
@@ -131,5 +130,5 @@ for i in range(0,len(Hisseler)):
     except:
         pass
 
-df_True=(df_signals[df_signals['Giriş Sinyali']=='True'])
+df_True = df_signals[(df_signals['Giriş Sinyali'] == 'True') & (df_signals['Kazanma Oranı[%]'] > 80.0)]
 print(df_True.to_string())
