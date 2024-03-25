@@ -1,7 +1,6 @@
 !pip install vectorbt
 !pip install pandas_ta
 !pip install pandas_ta
-!pip install telepot
 !pip install mplcyberpunk
 import warnings
 import pandas as pd 
@@ -13,7 +12,6 @@ import vectorbt as vbt
 from urllib import request
 import ssl
 import os
-import telepot
 import matplotlib.pyplot as plt
 import mplcyberpunk
 import requests
