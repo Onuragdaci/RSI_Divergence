@@ -118,9 +118,9 @@ for i in range(0,len(Hisseler)):
         Buy = any_entry and not all_entry
         Sell = any_exit and not all_exit
 
-        L1=[Hisseler[i],Stats.loc['Win Rate [%]'],Stats.loc['Sharpe Ratio'],
-            Stats.loc['Avg Winning Trade [%]'],str(Stats.loc['Avg Winning Trade Duration']),
-            Stats.loc['Avg Losing Trade [%]'],str(Stats.loc['Avg Losing Trade Duration']),
+        L1=[Hisseler[i],round(Stats.loc['Win Rate [%]'],2),round(Stats.loc['Sharpe Ratio'],2),
+            round(Stats.loc['Avg Winning Trade [%]'],2),str(Stats.loc['Avg Winning Trade Duration']),
+            round(Stats.loc['Avg Losing Trade [%]'],2),str(Stats.loc['Avg Losing Trade Duration']),
             str(Buy),str(Sell)]
 
         L1 = [str(elem) for elem in L1]
