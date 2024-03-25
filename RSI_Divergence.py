@@ -87,21 +87,6 @@ def rsi_divergence(data, window, order):
     df['position']=df['position'].replace(0, method='ffill')  
     return df
 
-def create_table_image(df, filename):
-    plt.close()
-    num_rows, num_cols = df.shape
-    cell_colors = [['none'] * num_cols for _ in range(num_rows)]  # Add one row for column headers
-    with plt.style.context('cyberpunk'):
-        fig, ax = plt.subplots(figsize=(6, 10))
-        ax.axis('off')
-        table = ax.table(cellText=df.values, colLabels=df.columns, cellLoc='center', loc='center', cellColours=cell_colors,colColours =['none'] * num_cols)      
-        table.auto_set_font_size(False)
-        ax.set_title(filename)
-        fig.tight_layout()
-        plt.savefig(filename + '.png', dpi=300)
-        plt.close()
-    return
-
 Hisse_Ozet=Hisse_Temel_Veriler()
 Hisseler=Hisse_Ozet['Kod'].values.tolist()
 
@@ -147,5 +132,4 @@ for i in range(0,len(Hisseler)):
         pass
 
 df_True=(df_signals[df_signals['Giriş Sinyali']=='True'])
-print(df_True)
-create_table_image(df_True, 'Positive_RS_Divergence')
+print(df_True.to_string())
