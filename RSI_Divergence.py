@@ -1,3 +1,8 @@
+!pip install vectorbt
+!pip install pandas_ta
+!pip install pandas_ta
+!pip install telepot
+!pip install mplcyberpunk
 import warnings
 import pandas as pd 
 import numpy as np
@@ -146,4 +151,3 @@ for i in range(0,len(Hisseler)):
 df_True=(df_signals[df_signals['Giriş Sinyali']=='True'])
 print(df_True)
 create_table_image(df_True, 'Positive_RS_Divergence')
-path="/content/Positive_RS_Divergence.png"
