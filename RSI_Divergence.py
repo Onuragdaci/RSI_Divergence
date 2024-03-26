@@ -1,6 +1,5 @@
 !pip install vectorbt
 !pip install pandas_ta
-!pip install pandas_ta
 !pip install mplcyberpunk
 import warnings
 import pandas as pd 
